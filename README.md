@@ -14,9 +14,9 @@ These files have been tested and used to generate a live ELK deployment on Azure
 (https://github.com/seankemy/Elk-Stack/blob/main/Ansible/filebeat_playbook_yml.txt)
 (https://github.com/seankemy/Elk-Stack/blob/main/Ansible/metricbeat_playbook_yml.txt)
 =======
-![](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/install_elk_yml.txt)
-![](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/filebeat_playbook_yml.txt)
-![](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/metricbeat_playbook_yml.txt)
+![Install ELK](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/install_elk_yml.txt)
+![Filebeat Playbook](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/filebeat_playbook_yml.txt)
+![Metricbeat Playbook](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/metricbeat_playbook_yml.txt)
 >>>>>>> 67ae4837d4859d0a061a226eae716a87d47cbed4
 
 This document contains the following details:
