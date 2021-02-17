@@ -7,9 +7,11 @@ The files in this repository were used to configure the network depicted below.
 
 ![](https://github.com/seankemy/Elk-Stack/blob/main/Diagrams/RedTeam%20Cloud%20Network%20Diagram%202.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
 
 ![](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/install_elk_yml.txt)
+![](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/filebeat_playbook_yml.txt)
+![](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/metricbeat_playbook_yml.txt)
 
 This document contains the following details:
 - Description of the Topology
@@ -33,23 +35,24 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 
 The configuration details of each machine may be found below.
 
-| Name     |  Function  | IP Address | Operating System |
-|----------|------------|------------|------------------|
-| Jump-Box | Gateway    | 10.0.0.6   | Linux            |
-| ELK      | Monitoring | 10.1.0.4   | Linux            |
-| DVWA-1   | Web Server | 10.0.0.9   | Linux            |
-| DVWA-2   | Web Server | 10.0.0.10  | Linux            |
+|         Name         |          Function         | IP Address | Operating System |
+|----------------------|---------------------------|------------|------------------|
+| Jump-Box-Provisioner | Gateway                   | 10.0.0.6   | Linux            |
+| ELK-VM               | Monitoring/Configuration  | 10.1.0.4   | Linux            |
+| Web-1                | Web Server/DVWA Container | 10.0.0.9   | Linux            |
+| Web-2                | Web Server/DVWA Container | 10.0.0.10  | Linux            |
+| Web-3                | Web Server/DVWA Container | 10.0.0.15  | Linux            |
 
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump-Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- 108.185.101.253
+Only the Jump-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- My workstation: 108.185.101.253
 
-Machines within the network can only be accessed by each other.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by the Jump-Box-Provisioner.
+- My workstation is the only machine that can access the ELK VM, through my personal IP address.
 
 A summary of the access policies in place can be found in the table below.
 
@@ -57,8 +60,9 @@ A summary of the access policies in place can be found in the table below.
 |----------|---------------------|----------------------|
 | Jump-Box | Yes                 | 108.185.101.253      |
 | ELK      | No                  | 10.0.0.6             |
-| DVWA-1   | No                  | 10.0.0.6             |
-| DVWA-2   | No                  | 10.0.0.6             |
+| Web-1    | No                  | 10.0.0.6             |
+| Web-2    | No                  | 10.0.0.6             |
+| Web-3    | No                  | 10.0.0.6             |
 
 
 ### Elk Configuration
@@ -82,16 +86,17 @@ The following screenshot displays the result of running `docker ps` after succes
 ### Target Machines & Beats
 
 This ELK server is configured to monitor the following machines:
-- DVWA-1 | 10.0.0.9
-- DVWA-2 | 10.0.0.10
+- Web-1 | 10.0.0.9
+- Web-2 | 10.0.0.10
+- Web-3 | 10.0.0.15
 
 We have installed the following Beats on these machines:
 - Filebeat
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- Filebeat collects changes in the filesystem, such as Apache logs.
-- Metricbeat collects changes in system metrics, such as CPU usage.
+- Filebeat collects specific changes to logs in the filesystem, such as Apache logs.
+- Metricbeat periodically collects changes in system metrics, such as CPU usage.
 
 
 ### Using the Playbook
@@ -99,6 +104,7 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the install-elk.yml file to the Ansible control node.
-- Update the hosts file to include the IP of the specific VM to run the playbook on.
-- Run the playbook, and navigate to http://10.1.0.4:5601 to check that the installation worked as expected.
+- Copy the filebeat-playbook.yml file to the /etc/ansible/roles folder.
+- Update the hosts file to include the IP addresses of webservers and elk.
+- Run the playbook, and navigate to http://10.1.0.4:5601/app/kibana to check that the installation worked as expected.
+
