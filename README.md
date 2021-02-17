@@ -107,7 +107,3 @@ SSH into the control node and follow the steps below:
 - Copy the filebeat-playbook.yml file to the /etc/ansible/roles folder.
 - Update the hosts file to include the IP addresses of webservers and elk.
 - Run the playbook, and navigate to http://10.1.0.4:5601/app/kibana to check that the installation worked as expected.
-<<<<<<< HEAD
-=======
-
->>>>>>> 67ae4837d4859d0a061a226eae716a87d47cbed4
