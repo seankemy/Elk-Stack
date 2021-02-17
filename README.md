@@ -9,9 +9,11 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
 
-![Install ELK](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/install_elk_yml.txt)
-![Filebeat Playbook](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/filebeat_playbook_yml.txt)
-![Metricbeat Playbook](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/metricbeat_playbook_yml.txt)
+[Install ELK](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/install_elk_yml.txt)
+
+[Filebeat Playbook](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/filebeat_playbook_yml.txt)
+
+[Metricbeat Playbook](https://github.com/seankemy/Elk-Stack/blob/main/Ansible/metricbeat_playbook_yml.txt)
 
 This document contains the following details:
 - Description of the Topology
@@ -107,7 +109,3 @@ SSH into the control node and follow the steps below:
 - Copy the filebeat-playbook.yml file to the /etc/ansible/roles folder.
 - Update the hosts file to include the IP addresses of webservers and elk.
 - Run the playbook, and navigate to http://10.1.0.4:5601/app/kibana to check that the installation worked as expected.
-<<<<<<< HEAD
-=======
-
->>>>>>> 67ae4837d4859d0a061a226eae716a87d47cbed4
