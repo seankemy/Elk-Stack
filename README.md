@@ -51,7 +51,7 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jump-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- My workstation: 108.185.101.253
+- My workstation: 0.0.0.0
 
 Machines within the network can only be accessed by the Jump-Box-Provisioner.
 - My workstation is the only machine that can access the ELK VM, through my personal IP address.
@@ -60,7 +60,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump-Box | Yes                 | 108.185.101.253      |
+| Jump-Box | Yes                 | 0.0.0.0              |
 | ELK      | No                  | 10.0.0.6             |
 | Web-1    | No                  | 10.0.0.6             |
 | Web-2    | No                  | 10.0.0.6             |
